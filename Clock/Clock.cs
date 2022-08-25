@@ -125,6 +125,8 @@ namespace Clock
             lbMinute.Text = "00";
             lbHour.Text = "0";
             timer1.Enabled = false;
+            btnStart.Text = "Start";
+
         }
 
      
