@@ -9,9 +9,9 @@ using System.Windows.Forms;
 
 namespace Clock
 {
-    public partial class Form1 : Form
+    public partial class Clock : Form
     {
-        public Form1()
+        public Clock()
         {
             InitializeComponent();
         }
@@ -28,7 +28,7 @@ namespace Clock
             if (tik >9)
             {
                 tik = 0;
-                second++;
+                second+=30;
             }
             if (tik < 10)
             {
@@ -76,6 +76,18 @@ namespace Clock
                 lbMinute.Text = minute + "";
             }
 
+
+            //Check Hour:
+            if (hour < 10)
+            {
+                lbHour.Text = "0" + hour;
+            }
+            else
+            {
+                lbHour.Text = hour + "";
+            }
+
+            //Set 24 hours per day.
             if (hour >24 )
             {
                 lbTik.Text = "0";
@@ -87,9 +99,23 @@ namespace Clock
 
         }
 
+        bool check = true;
         private void btnStart_Click(object sender, EventArgs e)
         {
-            timer1.Enabled = true;
+            if (check)
+            {
+                timer1.Enabled = true;
+                btnStart.Text = "Stop";
+                check = false;
+            }
+            else
+            {
+                timer1.Enabled = false;
+                btnStart.Text = "Start";
+                check = true;
+
+            }
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -99,7 +125,8 @@ namespace Clock
             lbMinute.Text = "00";
             lbHour.Text = "0";
             timer1.Enabled = false;
-
         }
+
+     
     }
 }
