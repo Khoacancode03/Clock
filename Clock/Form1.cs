@@ -76,6 +76,15 @@ namespace Clock
                 lbMinute.Text = minute + "";
             }
 
+            if (hour >24 )
+            {
+                lbTik.Text = "0";
+                lbSecond.Text = "00";
+                lbMinute.Text = "00";
+                lbHour.Text = "0";
+                timer1.Enabled = false;
+            }    
+
         }
 
         private void btnStart_Click(object sender, EventArgs e)
